@@ -728,8 +728,7 @@ public final class CalendarView: UIView {
     let positionBeforeLayout = positionRelativeToVisibleBounds(for: scrollToItemContext.targetItem)
 
     let secondsSinceAnimationStart = CACurrentMediaTime() - animationStartTime
-    let offset = maximumPerAnimationTickOffset * 1
-//      let offset = maximumPerAnimationTickOffset * CGFloat(min(secondsSinceAnimationStart / 5, 1))
+    let offset = maximumPerAnimationTickOffset * CGFloat(min(secondsSinceAnimationStart / 4, 1))
     switch positionBeforeLayout {
     case .before:
       scrollMetricsMutator.applyOffset(-offset)
