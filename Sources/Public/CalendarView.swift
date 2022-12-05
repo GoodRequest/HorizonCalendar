@@ -428,7 +428,7 @@ public final class CalendarView: UIView {
     }
   }
 
-  private lazy var scrollView: NoContentInsetAdjustmentScrollView = {
+  public private(set) lazy var scrollView: NoContentInsetAdjustmentScrollView = {
     let scrollView = NoContentInsetAdjustmentScrollView()
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false
@@ -1190,7 +1190,7 @@ extension CalendarView {
 ///
 /// The main thing this prevents is the situation where the view hierachy is traversed to find a scroll view, and attempts are made to
 /// change that scroll view's `contentInsetAdjustmentBehavior`.
-private final class NoContentInsetAdjustmentScrollView: UIScrollView {
+public final class NoContentInsetAdjustmentScrollView: UIScrollView {
 
   // MARK: Lifecycle
 
@@ -1205,7 +1205,7 @@ private final class NoContentInsetAdjustmentScrollView: UIScrollView {
 
   // MARK: Internal
 
-  override var contentInsetAdjustmentBehavior: ContentInsetAdjustmentBehavior {
+    public override var contentInsetAdjustmentBehavior: ContentInsetAdjustmentBehavior {
     didSet {
       super.contentInsetAdjustmentBehavior = .never
     }
